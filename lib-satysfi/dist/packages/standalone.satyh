@@ -9,7 +9,7 @@ let standalone bt =
       |> set-dominant-wide-script Kana
   in
   let bb = read-block ctx bt in
-  page-break A4Paper
+  page-break Paper.a4
     (fun _ -> (|
       text-origin = (80pt, 100pt);
       text-height = 630pt;

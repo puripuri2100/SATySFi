@@ -253,7 +253,7 @@ let title-deco =
   let default-config =
     (|
       show-pages    = true;
-      paper-size    = A4Paper;
+      paper-size    = Paper.a4;
       text-width    = 440pt;
       text-height   = 630pt;
       text-origin   = (80pt, 100pt);

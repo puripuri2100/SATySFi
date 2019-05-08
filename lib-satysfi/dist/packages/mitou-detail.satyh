@@ -221,7 +221,7 @@ end = struct
     % -- constants --
     let project = record#project in
     let subtitle = record#subtitle in
-    let page = A4Paper in
+    let page = Paper.a4 in
     let txtorg = (25mm, 25mm) in
     let txtwid = 210mm -' 25mm *' 2. in
     let txthgt = 297mm -' 25mm *' 2. in

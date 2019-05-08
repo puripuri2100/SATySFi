@@ -39,7 +39,7 @@ module MDJa : sig
 end = struct
 
 
-  let paper = A4Paper
+  let paper = Paper.a4
   let text-origin = (80pt, 100pt)
   let text-width = 440pt
   let text-height = 630pt
