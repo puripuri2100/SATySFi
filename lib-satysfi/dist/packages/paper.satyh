@@ -1,0 +1,76 @@
+
+module Paper : sig
+
+  val a0 : length * length
+  val a1 : length * length
+  val a2 : length * length
+  val a3 : length * length
+  val a4 : length * length
+  val a5 : length * length
+  val a6 : length * length
+
+  val b0 : length * length
+  val b1 : length * length
+  val b2 : length * length
+  val b3 : length * length
+  val b4 : length * length
+  val b5 : length * length
+  val b6 : length * length
+
+  val c0 : length * length
+  val c1 : length * length
+  val c2 : length * length
+  val c3 : length * length
+  val c4 : length * length
+  val c5 : length * length
+  val c6 : length * length
+
+  val b0j : length * length
+  val b1j : length * length
+  val b2j : length * length
+  val b3j : length * length
+  val b4j : length * length
+  val b5j : length * length
+  val b6j : length * length
+
+  val usletter : length * length
+  val uslegal : length * length
+
+end = struct
+
+  let a0 = (841mm, 1189mm) % ISO A0
+  let a1 = (594mm, 841mm) % ISO A1
+  let a2 = (420mm, 594mm) % ISO A2
+  let a3 = (297mm, 420mm) % ISO A3
+  let a4 = (210mm, 297mm) % ISO A4
+  let a5 = (148mm, 210mm) % ISO A5
+  let a6 = (105mm, 148mm) % ISO A6
+
+  let b0 = (1000mm, 1414mm) % ISO B0
+  let b1 = (707mm, 1000mm) % ISO B1
+  let b2 = (500mm, 707mm) % ISO B2
+  let b3 = (353mm, 500mm) % ISO B3
+  let b4 = (250mm, 353mm) % ISO B4
+  let b5 = (176mm, 250mm) % ISO B5
+  let b6 = (125mm, 176mm) % ISO B6
+
+  let c0 = (917mm, 1297mm) % ISO C0
+  let c1 = (648mm, 917mm) % ISO C1
+  let c2 = (458mm, 648mm) % ISO C2
+  let c3 = (324mm, 458mm) % ISO C3
+  let c4 = (229mm, 324mm) % ISO C4
+  let c5 = (162mm, 229mm) % ISO C5
+  let c6 = (114mm, 162mm) % ISO C6
+
+  let b0j = (1030mm, 1456mm) % JIS B0
+  let b1j = (728mm, 1030mm) % JIS B1
+  let b2j = (515mm, 728mm) % JIS B2
+  let b3j = (364mm, 515mm) % JIS B3
+  let b4j = (257mm, 364mm) % JIS B4
+  let b5j = (182mm, 257mm) % JIS B5
+  let b6j = (128mm, 182mm) % JIS B6
+
+  let usletter = (8.5inch, 11.inch)
+  let uslegal = (8.5inch, 14.inch)
+
+end
