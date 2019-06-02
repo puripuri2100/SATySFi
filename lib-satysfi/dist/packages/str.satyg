@@ -1,0 +1,84 @@
+
+module Str : sig
+
+  val string-before : string -> int -> string
+  val string-after : string -> int -> string
+  val first-string : string -> int -> string
+  val last-string : string -> int -> string
+  val global-replace : regexp -> string -> string -> string
+  val replace-first : regexp -> string -> string -> string
+  val string-to-strings : int -> string -> string list
+  val overlap-string-to-strings : int -> string -> string list
+  val quote : string -> string
+
+end = struct
+
+
+let string-before s n =
+  string-sub s 0 n
+
+
+let string-after s n =
+  string-sub s n (string-length s - n)
+
+
+let first-string s n =
+  string-sub s 0 n
+
+
+let last-string s n =
+  string-sub s (string-length s - n) n
+
+
+let global-replace expr repl text =
+  global-substitute expr (replace-matched repl) text
+
+
+let replace-first expr repl text =
+  substitute-first expr (replace-matched repl) text
+
+
+let string-to-strings n st =
+  let-rec string-to-strings-sub st len m =
+    if len < 1 then
+      []
+    else
+      let main-s = string-sub st 0 m in
+      let rem-s = string-sub st m (len - m) in
+        main-s :: string-to-strings-sub rem-s (len - m) m
+  in
+  let len = string-length st in
+    string-to-strings-sub st len n
+
+
+let overlap-string-to-strings n st =
+  let-rec string-to-strings-sub st len m =
+    if len < m then
+      []
+    else
+      let main-s = string-sub st 0 m in
+      let rem-s = string-sub st 1 (len - 1) in
+        main-s :: string-to-strings-sub rem-s (len - 1) m
+  in
+  let len = string-length st in
+    string-to-strings-sub st len n
+
+
+let quote-sub s =
+  match s with
+  | `$` -> `\\$`
+  | `^` -> `\\^`
+  | `.` -> `\\.`
+  | `*` -> `\\*`
+  | `+` -> `\\+`
+  | `?` -> `\\?`
+  | `[` -> `\\[`
+  | `]` -> `\\]`
+  | `\` -> `\\\`
+  | _   -> s
+
+let quote s =
+  let s-list = string-to-strings 1 s in
+    List.map quote-sub s-list |> List.fold-left (^) ` `
+
+end
