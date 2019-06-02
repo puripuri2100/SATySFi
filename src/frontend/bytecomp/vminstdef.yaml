@@ -1916,6 +1916,54 @@ code: |
   make_bool (Str.string_match pat s 0)
 
 ---
+inst: PrimitiveGlobalSubstitute
+is-pdf-mode-primitive: yes
+is-text-mode-primitive: yes
+name: "global-substitute"
+type: |
+  ~% (tRE @-> (tS @-> tS) @-> tS @-> tS)
+
+needs-reducef : yes
+params:
+- pat : regexp
+- valueg
+- text : string
+code: |
+  let value = (fun s -> get_string (reducef valueg [BaseConstant(BCString(s))])) in
+    make_string (Str.global_substitute pat value text)
+
+---
+inst: PrimitiveSubstituteFirst
+is-pdf-mode-primitive: yes
+is-text-mode-primitive: yes
+name: "substitute-first"
+type: |
+  ~% (tRE @-> (tS @-> tS) @-> tS @-> tS)
+
+needs-reducef : yes
+params:
+- pat : regexp
+- valueg
+- text : string
+code: |
+  let value = (fun s -> get_string (reducef valueg [BaseConstant(BCString(s))])) in
+    make_string (Str.substitute_first pat value text)
+
+---
+inst: PrimitiveReplaceMatched
+is-pdf-mode-primitive: yes
+is-text-mode-primitive: yes
+name: "replace-matched"
+type: |
+  ~% (tS @-> tS @-> tS)
+
+params:
+- repl : string
+- text : string
+code: |
+  make_string (Str.replace_matched repl text)
+
+---
 inst: PrimitiveSplitIntoLines
 is-pdf-mode-primitive: yes
 is-text-mode-primitive: yes
